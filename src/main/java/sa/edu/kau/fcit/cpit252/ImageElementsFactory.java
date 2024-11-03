@@ -9,10 +9,19 @@ public class ImageElementsFactory {
 
   public ImageElement getFlyweight(String n) {
     // return a flyweight if it already exists, otherwise, put it in the map.
+    if(flyweights.containsKey(n)){
+      return flyweights.get(n);
+    }
+    ImageElement imageElement = new ImageElement(n);
+    flyweights.put(n, imageElement);
+    return imageElement;
   }
+
+
 
   public int numberOfFlyweights() {
     // return the size of the HashMap
+    return flyweights.size();
   }
 
 }
